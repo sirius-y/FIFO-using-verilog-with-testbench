@@ -1,0 +1,42 @@
+The operation of a queue makes it a first in first out data structure. That’s why fifo is also known as queue. In a fifo data structure, the first element added to the queue will be first one to be removed. 
+It means once a new element is added, all elements that were added before have to be removed before the new element can be removed.
+ 
+There are various blocks which comes under FIFO Block Diagram. FIFO is nothing but a ram or a memory. As we know ram consists of a memory location and each memory location consists of a data in our project, 
+we will be going to use 8-bit data as a input. Using ram, we can read and write the data. For that purpose, we are using this read and write block and this read and write block is depend on read pointer and write pointer. 
+Basically, this pointer block tells us about a location where we have to read the data and write the data. This pointer block depends upon this output flash (empty and full). 
+
+We can say that this output flash is empty or full is totally depends on counter operation. Now what is counter operation? When we are writing the data, 
+counter counts the data that means it increase the data and while reading the data counter reduce the count.
+In short, based on count we can say that it is empty or full and based on empty and full only we can write the data or read the data. 
+
+While writing the code we will take Data_in, clk, rst, wr, rd as a input and empty, full, data_out,  as a output.
+
+The architecture of the FIFO Memory is mentioned further. Each block from the diagram can be seen below:
+
+1) Counter:
+The counter block is responsible for a count operation in the fifo. It specifies the count with respect to the operation being performed. When data is read from the the memory, 
+value of counter decreases while it increases in write operation. This is essential because, counter determines the status of full and empty blocks and also it points location with help of pointer block. 
+In the code, we used a case operator to perform operations for counter.
+
+2) Pointer:
+
+This block points to the memory location where the operations needs to be performed. It gets its value from counter as well as full and empty block. 
+It is checked for space and thus we use full and empty flags. For the operation formed,
+pointer values (for read and write) its value is updated to specify the next or previous memory location in the ram.
+
+3) Full:
+
+When the memory location where data to be updated is occupied, full flag is set high.
+
+4) Empty:
+
+When memory location where data is to be operated can write it, it is set high. At the same time it also says whether read operation can be performed. 
+
+5) Ram:
+
+FIFO is nothing but a ram or a memory. As we know ram consists of a memory location and each memory location consists of a data. Thus, for a 6 stage FIFO Memory, 
+we made a ram of 6 memory locations. Each location can handle 8-bit data. All the operations are performed in ram.
+Read & Write:
+
+As per the user input, read operation (retrieving data from ram) and write operation (feeding data in memory) is performed. All the other blocks are connected with them. 
+Thus, any change in the values of read and write variables will have an effect on whole FIFO memory thus making it work.
